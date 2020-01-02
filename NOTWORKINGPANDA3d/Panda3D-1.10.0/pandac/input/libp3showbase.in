@@ -1,0 +1,102 @@
+1494874909
+3 2
+13 libp3showbase 4 il41 14 panda3d.direct 
+9
+10 17 get_particle_path 0 1 0 17 get_particle_path 0 1 1 0
+50
+ConfigVariableSearchPath &get_particle_path(void);
+
+11 15 throw_new_frame 0 1 0 15 throw_new_frame 0 1 2 0
+27
+void throw_new_frame(void);
+
+12 19 get_config_showbase 0 1 0 19 get_config_showbase 0 1 3 92
+// Returns the configure object for accessing config variables from a
+// scripting language.
+35
+DConfig &get_config_showbase(void);
+
+13 16 init_app_for_gui 0 1 0 16 init_app_for_gui 0 1 4 0
+28
+void init_app_for_gui(void);
+
+14 23 add_fullscreen_testsize 0 1 0 23 add_fullscreen_testsize 0 1 5 61
+// klunky interface since we cant pass array from python->C++
+51
+void add_fullscreen_testsize(int xsize, int ysize);
+
+15 24 runtest_fullscreen_sizes 0 1 0 24 runtest_fullscreen_sizes 0 1 6 0
+51
+void runtest_fullscreen_sizes(GraphicsWindow *win);
+
+16 27 query_fullscreen_testresult 0 1 0 27 query_fullscreen_testresult 0 1 7 0
+55
+bool query_fullscreen_testresult(int xsize, int ysize);
+
+17 33 store_accessibility_shortcut_keys 0 1 0 33 store_accessibility_shortcut_keys 0 1 8 31
+// to handle windows stickykeys
+45
+void store_accessibility_shortcut_keys(void);
+
+18 33 allow_accessibility_shortcut_keys 0 1 0 33 allow_accessibility_shortcut_keys 0 1 9 0
+55
+void allow_accessibility_shortcut_keys(bool allowKeys);
+
+9
+1 0 0 6 1 19 0 0 0 0 
+2 0 0 4 2 21 0 0 0 0 
+3 0 0 6 3 22 0 0 92 // Returns the configure object for accessing config variables from a
+// scripting language. 0 
+4 0 0 4 4 21 0 0 0 0 
+5 0 0 4 5 21 0 0 61 // klunky interface since we cant pass array from python->C++ 2 5 xsize 1 24  5 ysize 1 24  
+6 0 0 4 6 21 0 0 0 1 3 win 1 25  
+7 0 0 6 7 27 0 0 0 2 5 xsize 1 24  5 ysize 1 24  
+8 0 0 4 8 21 0 0 31 // to handle windows stickykeys 0 
+9 0 0 4 9 21 0 0 0 1 9 allowKeys 1 27  
+9
+19 26 ConfigVariableSearchPath * 0 8576 26 ConfigVariableSearchPath * 26 ConfigVariableSearchPath * 0 0 20 0 0 0 0 0 0 0 0 0 0
+
+20 24 ConfigVariableSearchPath 0 2048 24 ConfigVariableSearchPath 24 ConfigVariableSearchPath 0 0 0 0 0 0 0 0 0 0 0 0 731
+/**
+ * This is similar to a ConfigVariableList, but it returns its list as a
+ * DSearchPath, as a list of directories.
+ *
+ * You may locally append directories to the end of the search path with the
+ * methods here, or prepend them to the beginning.  Use these methods to make
+ * adjustments to the path; do not attempt to directly modify the const
+ * DSearchPath object returned by get_value().
+ *
+ * Unlike other ConfigVariable types, local changes (made by calling
+ * append_directory() and prepend_directory()) are specific to this particular
+ * instance of the ConfigVariableSearchPath.  A separate instance of the same
+ * variable, created by using the same name to the constructor, will not
+ * reflect the local changes.
+ */
+
+21 4 void 0 8194 4 void 4 void 0 6 0 0 0 0 0 0 0 0 0 0 0
+
+22 9 DConfig * 0 8576 9 DConfig * 9 DConfig * 0 0 23 0 0 0 0 0 0 0 0 0 0
+
+23 7 DConfig 0 2048 7 DConfig 7 DConfig 0 0 0 0 0 0 0 0 0 0 0 0 290
+/**
+ * This class emulates the old dconfig-style interface to our Panda config
+ * system.  It exists only to provide backward-compatible support, and it is
+ * used primarily by Python code.  For modern code, use the new
+ * ConfigVariable* interface instead of this deprecated interface.
+ */
+
+24 3 int 0 8194 3 int 3 int 0 1 0 0 0 0 0 0 0 0 0 0 0
+
+25 16 GraphicsWindow * 0 8576 16 GraphicsWindow * 16 GraphicsWindow * 0 0 26 0 0 0 0 0 0 0 0 0 0
+
+26 14 GraphicsWindow 0 2048 14 GraphicsWindow 14 GraphicsWindow 0 0 0 0 0 0 0 0 0 0 0 0 122
+/**
+ * A window, fullscreen or on a desktop, into which a graphics device sends
+ * its output for interactive display.
+ */
+
+27 4 bool 0 8194 4 bool 4 bool 0 4 0 0 0 0 0 0 0 0 0 0 0
+
+0
+0
+0
