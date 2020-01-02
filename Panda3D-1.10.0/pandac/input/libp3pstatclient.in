@@ -1,0 +1,390 @@
+1494874300
+3 2
+16 libp3pstatclient 4 __OL 12 panda3d.core 
+32
+44 12 ~PStatClient 0 4 76 25 PStatClient::~PStatClient 0 0 0
+32
+PStatClient::~PStatClient(void);
+
+45 7 connect 0 4 76 20 PStatClient::connect 0 1 2 0
+83
+static inline bool PStatClient::connect(std::string const & = string(), int  = -1);
+
+46 10 disconnect 0 4 76 23 PStatClient::disconnect 0 1 3 0
+49
+static inline void PStatClient::disconnect(void);
+
+47 12 is_connected 0 4 76 25 PStatClient::is_connected 0 1 4 0
+51
+static inline bool PStatClient::is_connected(void);
+
+48 18 resume_after_pause 0 4 76 31 PStatClient::resume_after_pause 0 1 5 0
+57
+static inline void PStatClient::resume_after_pause(void);
+
+49 9 main_tick 0 4 76 22 PStatClient::main_tick 0 1 6 0
+48
+static inline void PStatClient::main_tick(void);
+
+50 11 thread_tick 0 4 76 24 PStatClient::thread_tick 0 1 7 0
+65
+static inline void PStatClient::thread_tick(std::string const &);
+
+51 11 PStatClient 0 4 76 24 PStatClient::PStatClient 0 1 1 0
+63
+inline PStatClient::PStatClient(PStatClient const &) = default;
+
+52 11 PStatThread 0 4 77 24 PStatThread::PStatThread 0 3 8 9 10 446
+/**
+ * Normally, this constructor is called only from PStatClient.  Use one of the
+ * constructors below to create your own Thread.
+ */
+
+/**
+ * Normally, this constructor is called only from PStatClient.  Use one of the
+ * constructors below to create your own Thread.
+ */
+
+/**
+ * Creates a new named thread.  This will be used to unify tasks that share a
+ * common thread, and differentiate tasks that occur in different threads.
+ */
+
+/**
+ *
+ */
+199
+inline PStatThread::PStatThread(PStatClient *client, int index);
+inline PStatThread::PStatThread(Thread *thread, PStatClient *client = NULL);
+inline PStatThread::PStatThread(PStatThread const &copy);
+
+53 10 operator = 0 4 77 23 PStatThread::operator = 0 1 11 0
+61
+inline void PStatThread::operator =(PStatThread const &copy);
+
+54 9 new_frame 0 4 77 22 PStatThread::new_frame 0 1 12 327
+/**
+ * This must be called at the start of every "frame", whatever a frame may be
+ * deemed to be, to accumulate all the stats that have collected so far for
+ * the thread and ship them off to the server.
+ *
+ * Calling PStatClient::thread_tick() will automatically call this for any
+ * threads with the indicated sync name.
+ */
+34
+void PStatThread::new_frame(void);
+
+55 9 add_frame 0 4 77 22 PStatThread::add_frame 0 1 13 118
+/**
+ * This is a slightly lower-level version of new_frame that also specifies the
+ * data to send for this frame.
+ */
+62
+void PStatThread::add_frame(PStatFrameData const &frame_data);
+
+56 10 get_thread 0 4 77 23 PStatThread::get_thread 0 1 14 90
+/**
+ * Returns the Panda Thread object associated with this particular
+ * PStatThread.
+ */
+44
+Thread *PStatThread::get_thread(void) const;
+
+57 9 get_index 0 4 77 22 PStatThread::get_index 0 1 15 85
+/**
+ * Returns the index number of this particular thread within the PStatClient.
+ */
+46
+inline int PStatThread::get_index(void) const;
+
+58 12 ~PStatThread 0 4 77 25 PStatThread::~PStatThread 0 0 0
+32
+PStatThread::~PStatThread(void);
+
+59 14 PStatCollector 0 4 81 30 PStatCollector::PStatCollector 0 3 16 17 18 462
+/**
+ * Creates an invalid PStatCollector.  Any attempt to use this collector will
+ * crash messily.
+ *
+ * You can reassign it to a different, valid one later.
+ */
+
+/**
+ * This bogus version of the function is only defined if DO_PSTATS is not
+ * defined, meaning all these functions should compile to nothing.
+ */
+
+/**
+ * This bogus version of the function is only defined if DO_PSTATS is not
+ * defined, meaning all these functions should compile to nothing.
+ */
+258
+inline PStatCollector::PStatCollector(std::string const &name, PStatClient *client = NULL);
+inline PStatCollector::PStatCollector(PStatCollector const &parent, std::string const &name);
+inline PStatCollector::PStatCollector(PStatCollector const &) = default;
+
+60 9 is_active 0 4 81 25 PStatCollector::is_active 0 2 19 20 0
+104
+inline bool PStatCollector::is_active(void);
+inline bool PStatCollector::is_active(PStatThread const &);
+
+61 10 is_started 0 4 81 26 PStatCollector::is_started 0 1 21 0
+45
+inline bool PStatCollector::is_started(void);
+
+62 5 start 0 4 81 21 PStatCollector::start 0 3 22 23 24 0
+161
+inline void PStatCollector::start(void);
+inline void PStatCollector::start(PStatThread const &);
+inline void PStatCollector::start(PStatThread const &, double );
+
+63 4 stop 0 4 81 20 PStatCollector::stop 0 3 25 26 27 0
+158
+inline void PStatCollector::stop(void);
+inline void PStatCollector::stop(PStatThread const &);
+inline void PStatCollector::stop(PStatThread const &, double );
+
+64 11 clear_level 0 4 81 27 PStatCollector::clear_level 0 2 28 29 0
+108
+inline void PStatCollector::clear_level(void);
+inline void PStatCollector::clear_level(PStatThread const &);
+
+65 9 set_level 0 4 81 25 PStatCollector::set_level 0 2 30 31 0
+116
+inline void PStatCollector::set_level(double );
+inline void PStatCollector::set_level(PStatThread const &, double );
+
+66 9 add_level 0 4 81 25 PStatCollector::add_level 0 2 32 33 0
+116
+inline void PStatCollector::add_level(double );
+inline void PStatCollector::add_level(PStatThread const &, double );
+
+67 9 sub_level 0 4 81 25 PStatCollector::sub_level 0 2 34 35 0
+116
+inline void PStatCollector::sub_level(double );
+inline void PStatCollector::sub_level(PStatThread const &, double );
+
+68 13 add_level_now 0 4 81 29 PStatCollector::add_level_now 0 1 36 0
+51
+inline void PStatCollector::add_level_now(double );
+
+69 13 sub_level_now 0 4 81 29 PStatCollector::sub_level_now 0 1 37 0
+51
+inline void PStatCollector::sub_level_now(double );
+
+70 11 flush_level 0 4 81 27 PStatCollector::flush_level 0 1 38 0
+46
+inline void PStatCollector::flush_level(void);
+
+71 9 get_level 0 4 81 25 PStatCollector::get_level 0 2 39 40 0
+108
+inline double PStatCollector::get_level(void);
+inline double PStatCollector::get_level(PStatThread const &);
+
+72 9 get_index 0 4 81 25 PStatCollector::get_index 0 1 41 0
+49
+inline int PStatCollector::get_index(void) const;
+
+73 15 ~PStatCollector 0 4 81 31 PStatCollector::~PStatCollector 0 0 0
+38
+PStatCollector::~PStatCollector(void);
+
+74 21 PStatCollectorForward 0 4 82 44 PStatCollectorForward::PStatCollectorForward 0 2 42 43 10
+/**
+ *
+ */
+173
+inline PStatCollectorForward::PStatCollectorForward(PStatCollector const &col);
+inline PStatCollectorForward::PStatCollectorForward(PStatCollectorForward const &) = default;
+
+75 22 ~PStatCollectorForward 0 4 82 45 PStatCollectorForward::~PStatCollectorForward 0 0 0
+52
+PStatCollectorForward::~PStatCollectorForward(void);
+
+43
+1 0 0 7 9 86 44 0 0 1 6 param0 0 84  
+2 0 0 6 3 88 0 0 0 2 6 param0 0 87  6 param1 0 80  
+3 0 0 4 4 89 0 0 0 0 
+4 0 0 6 5 88 0 0 0 0 
+5 0 0 4 6 89 0 0 0 0 
+6 0 0 4 7 89 0 0 0 0 
+7 0 0 4 8 89 0 0 0 1 6 param0 0 87  
+8 0 0 7 11 90 58 0 135 /**
+ * Normally, this constructor is called only from PStatClient.  Use one of the
+ * constructors below to create your own Thread.
+ */ 2 6 client 1 86  5 index 1 80  
+9 0 0 7 11 90 58 0 10 /**
+ *
+ */ 1 4 copy 1 91  
+10 0 0 7 11 90 58 0 160 /**
+ * Creates a new named thread.  This will be used to unify tasks that share a
+ * common thread, and differentiate tasks that occur in different threads.
+ */ 2 6 thread 1 78  6 client 1 86  
+11 0 0 6 12 90 0 0 0 2 4 this 3 90  4 copy 1 91  
+12 0 0 4 13 89 0 0 327 /**
+ * This must be called at the start of every "frame", whatever a frame may be
+ * deemed to be, to accumulate all the stats that have collected so far for
+ * the thread and ship them off to the server.
+ *
+ * Calling PStatClient::thread_tick() will automatically call this for any
+ * threads with the indicated sync name.
+ */ 1 4 this 3 90  
+13 0 0 4 14 89 0 0 118 /**
+ * This is a slightly lower-level version of new_frame that also specifies the
+ * data to send for this frame.
+ */ 2 4 this 3 90  10 frame_data 1 93  
+14 0 0 7 15 78 0 0 90 /**
+ * Returns the Panda Thread object associated with this particular
+ * PStatThread.
+ */ 1 4 this 3 91  
+15 0 0 6 16 80 0 0 85 /**
+ * Returns the index number of this particular thread within the PStatClient.
+ */ 1 4 this 3 91  
+16 0 0 7 24 98 73 0 0 1 6 param0 0 96  
+17 0 0 7 24 98 73 0 148 /**
+ * This bogus version of the function is only defined if DO_PSTATS is not
+ * defined, meaning all these functions should compile to nothing.
+ */ 2 6 parent 1 96  4 name 1 87  
+18 0 0 7 24 98 73 0 148 /**
+ * This bogus version of the function is only defined if DO_PSTATS is not
+ * defined, meaning all these functions should compile to nothing.
+ */ 2 4 name 1 87  6 client 1 86  
+19 0 0 6 25 88 0 0 0 1 4 this 3 98  
+20 0 0 6 25 88 0 0 0 2 4 this 3 98  6 param0 0 91  
+21 0 0 6 26 88 0 0 0 1 4 this 3 98  
+22 0 0 4 27 89 0 0 0 1 4 this 3 98  
+23 0 0 4 27 89 0 0 0 2 4 this 3 98  6 param0 0 91  
+24 0 0 4 27 89 0 0 0 3 4 this 3 98  6 param0 0 91  6 param1 0 99  
+25 0 0 4 28 89 0 0 0 1 4 this 3 98  
+26 0 0 4 28 89 0 0 0 2 4 this 3 98  6 param0 0 91  
+27 0 0 4 28 89 0 0 0 3 4 this 3 98  6 param0 0 91  6 param1 0 99  
+28 0 0 4 29 89 0 0 0 1 4 this 3 98  
+29 0 0 4 29 89 0 0 0 2 4 this 3 98  6 param0 0 91  
+30 0 0 4 30 89 0 0 0 3 4 this 3 98  6 param0 0 91  6 param1 0 99  
+31 0 0 4 30 89 0 0 0 2 4 this 3 98  6 param0 0 99  
+32 0 0 4 31 89 0 0 0 3 4 this 3 98  6 param0 0 91  6 param1 0 99  
+33 0 0 4 31 89 0 0 0 2 4 this 3 98  6 param0 0 99  
+34 0 0 4 32 89 0 0 0 3 4 this 3 98  6 param0 0 91  6 param1 0 99  
+35 0 0 4 32 89 0 0 0 2 4 this 3 98  6 param0 0 99  
+36 0 0 4 33 89 0 0 0 2 4 this 3 98  6 param0 0 99  
+37 0 0 4 34 89 0 0 0 2 4 this 3 98  6 param0 0 99  
+38 0 0 4 35 89 0 0 0 1 4 this 3 98  
+39 0 0 6 36 99 0 0 0 1 4 this 3 98  
+40 0 0 6 36 99 0 0 0 2 4 this 3 98  6 param0 0 91  
+41 0 0 6 37 80 0 0 0 1 4 this 3 96  
+42 0 0 7 41 100 75 0 10 /**
+ *
+ */ 1 3 col 1 96  
+43 0 0 7 41 100 75 0 0 1 6 param0 0 101  
+27
+76 11 PStatClient 0 26625 11 PStatClient 11 PStatClient 0 0 0 1 51 44 0 6 45 46 47 48 49 50 0 0 0 0 0 0
+
+77 11 PStatThread 0 141313 11 PStatThread 11 PStatThread 0 0 0 1 52 58 2 103 104 5 53 54 55 56 57 0 0 0 0 0 145
+/**
+ * A lightweight class that represents a single thread of execution to PStats.
+ * It corresponds one-to-one with Panda's Thread instance.
+ */
+
+78 8 Thread * 0 8576 8 Thread * 8 Thread * 0 0 79 0 0 0 0 0 0 0 0 0 0
+
+79 6 Thread 0 2048 6 Thread 6 Thread 0 0 0 0 0 0 0 0 0 0 0 0 396
+/**
+ * A thread; that is, a lightweight process.  This is an abstract base class;
+ * to use it, you must subclass from it and redefine thread_main().
+ *
+ * The thread itself will keep a reference count on the Thread object while it
+ * is running; when the thread returns from its root function, the Thread
+ * object will automatically be destructed if no other pointers are
+ * referencing it.
+ */
+
+80 3 int 0 8194 3 int 3 int 0 1 0 0 0 0 0 0 0 0 0 0 0
+
+81 14 PStatCollector 0 141313 14 PStatCollector 14 PStatCollector 0 0 0 1 59 73 0 13 60 61 62 63 64 65 66 67 68 69 70 71 72 0 0 0 0 0 900
+/**
+ * A lightweight class that represents a single element that may be timed
+ * and/or counted via stats.
+ *
+ * Collectors can be used to measure two different kinds of values: elapsed
+ * time, and "other".
+ *
+ * To measure elapsed time, call start() and stop() as appropriate to bracket
+ * the section of code you want to time (or use a PStatTimer to do this
+ * automatically).
+ *
+ * To measure anything else, call set_level() and/or add_level() to set the
+ * "level" value associated with this collector.  The meaning of the value set
+ * for the "level" is entirely up to the user; it may represent the number of
+ * triangles rendered or the kilobytes of texture memory consumed, for
+ * instance.  The level set will remain fixed across multiple frames until it
+ * is reset via another set_level() or adjusted via a call to add_level().  It
+ * may also be completely removed via clear_level().
+ */
+
+82 21 PStatCollectorForward 0 141313 21 PStatCollectorForward 21 PStatCollectorForward 0 0 0 1 74 75 0 0 0 0 1 0 83 0 0 0 0 173
+/**
+ * This class serves as a cheap forward reference to a PStatCollector, so that
+ * classes that are defined before the pstats module may access the
+ * PStatCollector.
+ */
+
+83 25 PStatCollectorForwardBase 0 2049 25 PStatCollectorForwardBase 25 PStatCollectorForwardBase 0 0 0 0 0 0 0 0 0 0 0 0 282
+/**
+ * This class serves as a cheap forward reference to a PStatCollector, which
+ * is defined in the pstatclient module (and is not directly accessible here
+ * in the express module).
+ *
+ * This is subclassed as PStatCollectorForward, which defines the actual
+ * functionality.
+ */
+
+84 19 PStatClient const * 0 8576 19 PStatClient const * 19 PStatClient const * 0 0 85 0 0 0 0 0 0 0 0 0 0
+
+85 17 PStatClient const 0 8832 17 PStatClient const 17 PStatClient const 0 0 76 0 0 0 0 0 0 0 0 0 0
+
+86 13 PStatClient * 0 8576 13 PStatClient * 13 PStatClient * 0 0 76 0 0 0 0 0 0 0 0 0 0
+
+87 13 atomic string 0 2 13 atomic string 13 atomic string 0 7 0 0 0 0 0 0 0 0 0 0 0
+
+88 4 bool 0 8194 4 bool 4 bool 0 4 0 0 0 0 0 0 0 0 0 0 0
+
+89 4 void 0 8194 4 void 4 void 0 6 0 0 0 0 0 0 0 0 0 0 0
+
+90 13 PStatThread * 0 8576 13 PStatThread * 13 PStatThread * 0 0 77 0 0 0 0 0 0 0 0 0 0
+
+91 19 PStatThread const * 0 8576 19 PStatThread const * 19 PStatThread const * 0 0 92 0 0 0 0 0 0 0 0 0 0
+
+92 17 PStatThread const 0 8832 17 PStatThread const 17 PStatThread const 0 0 77 0 0 0 0 0 0 0 0 0 0
+
+93 22 PStatFrameData const * 0 8576 22 PStatFrameData const * 22 PStatFrameData const * 0 0 94 0 0 0 0 0 0 0 0 0 0
+
+94 20 PStatFrameData const 0 8832 20 PStatFrameData const 20 PStatFrameData const 0 0 95 0 0 0 0 0 0 0 0 0 0
+
+95 14 PStatFrameData 0 1050624 14 PStatFrameData 14 PStatFrameData 0 0 0 0 0 0 0 0 0 0 0 0 215
+/**
+ * Contains the raw timing and level data for a single frame.  This is a
+ * sequence of start/stop events, as well as a table of level values,
+ * associated with a number of collectors within a single frame.
+ */
+
+96 22 PStatCollector const * 0 8576 22 PStatCollector const * 22 PStatCollector const * 0 0 97 0 0 0 0 0 0 0 0 0 0
+
+97 20 PStatCollector const 0 8832 20 PStatCollector const 20 PStatCollector const 0 0 81 0 0 0 0 0 0 0 0 0 0
+
+98 16 PStatCollector * 0 8576 16 PStatCollector * 16 PStatCollector * 0 0 81 0 0 0 0 0 0 0 0 0 0
+
+99 6 double 0 8194 6 double 6 double 0 3 0 0 0 0 0 0 0 0 0 0 0
+
+100 23 PStatCollectorForward * 0 8576 23 PStatCollectorForward * 23 PStatCollectorForward * 0 0 82 0 0 0 0 0 0 0 0 0 0
+
+101 29 PStatCollectorForward const * 0 8576 29 PStatCollectorForward const * 29 PStatCollectorForward const * 0 0 102 0 0 0 0 0 0 0 0 0 0
+
+102 27 PStatCollectorForward const 0 8832 27 PStatCollectorForward const 27 PStatCollectorForward const 0 0 82 0 0 0 0 0 0 0 0 0 0
+
+0
+2
+103 6 thread 0 2 78 56 0 0 0 0 0 19 PStatThread::thread 0
+
+104 5 index 0 2 80 57 0 0 0 0 0 18 PStatThread::index 0
+
+0

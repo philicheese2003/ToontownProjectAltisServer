@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b434554f-a8e8-4e32-b8aa-4fba042b6d63" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="ProjectAltis-OldAcornAcres-master" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1Vb5Qy6pg7OZ9ZOu97twGRZIcJh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b434554f-a8e8-4e32-b8aa-4fba042b6d63" name="Default Changelist" comment="" />
+      <created>1577508941318</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577508941318</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="523" y="398" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1577641177108">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="523" y="398" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1032@0.0.1920.1032" timestamp="1577641177108" />
+    <state x="541" y="263" key="FileChooserDialogImpl" timestamp="1577582793269">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="541" y="263" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1577582793269" />
+    <state x="199" y="110" key="SettingsEditor" timestamp="1577551862695">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="199" y="110" key="SettingsEditor/0.0.1920.1032@0.0.1920.1032" timestamp="1577551862695" />
+    <state x="367" y="464" key="com.intellij.ide.util.TipDialog" timestamp="1577896733636">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="367" y="464" key="com.intellij.ide.util.TipDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1577896733636" />
+    <state x="1152" y="15" width="768" height="1017" key="find.popup" timestamp="1577922224920">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="1152" y="15" width="768" height="1017" key="find.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1577922224920" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/toontown/battle/BattleCalculatorAI.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/toontown/toon/Experience.py</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/toontown/toonbase/ToontownGlobals.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/toontown/town/TownBattleAttackPanel.py</url>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/toontown/suit/DistributedSuitBase.py</url>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

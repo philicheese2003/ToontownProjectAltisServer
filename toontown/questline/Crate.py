@@ -1,0 +1,3 @@
+import QuestLineGlobals
+
+class Crate
